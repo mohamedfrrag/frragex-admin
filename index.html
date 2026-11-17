@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; connect-src https://cstufywfjilztdnpnnvs.supabase.co; base-uri 'none'; form-action 'none'">
+<title>FrragEX Admin</title>
+<link rel="stylesheet" href="admin.css">
+<script type="module" src="admin.js"></script>
+</head>
+<body>
+<main>
+<header><h1 dir="ltr">FrragEX <span>Admin</span></h1><button id="logout" hidden>تسجيل الخروج</button></header>
+<p id="status" role="status" aria-live="polite"></p>
+<section id="signin" aria-labelledby="signTitle">
+  <h2 id="signTitle">دخول الإدارة</h2>
+  <form id="login">
+    <label>البريد الإلكتروني <input name="email" type="email" dir="ltr" autocomplete="username" required></label>
+    <label>كلمة المرور <input name="password" type="password" dir="ltr" autocomplete="current-password" required></label>
+    <button type="submit">دخول</button>
+  </form>
+</section>
+<div id="dashboard" hidden>
+  <section>
+    <h2>إنشاء حساب تلفزيون</h2>
+    <form id="create" autocomplete="off">
+      <label>اسم المستخدم <input name="username" dir="ltr" minlength="3" maxlength="32" pattern="[a-z0-9][a-z0-9_\-]{2,31}" placeholder="player_01" required></label>
+      <label>كلمة المرور <input name="password" type="password" dir="ltr" autocomplete="new-password" minlength="10" maxlength="72" required></label>
+      <label>الاشتراك بالأيام <input name="days" type="number" value="30" min="1" max="3650" required></label>
+      <button type="submit">إنشاء الحساب</button>
+    </form>
+  </section>
+  <section>
+    <div class="section-head"><h2>الحسابات</h2><button id="refresh">تحديث</button></div>
+    <p id="empty" hidden>لا توجد حسابات.</p>
+    <div class="table-wrap"><table id="table" hidden>
+      <thead><tr><th scope="col">المستخدم</th><th scope="col">الحالة</th><th scope="col">ينتهي في</th><th scope="col">التلفزيون</th><th scope="col">الإجراءات</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+</div>
+</main>
+</body>
+</html>
